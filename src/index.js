@@ -3,24 +3,17 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { configureStore } from "@reduxjs/toolkit";
+import userReducer from "./features/user";
+import themeReducer from "./features/theme";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
 
-const weight = 100;
-
-function reducer(state = weight, action) {
-  if (action.type === "INCREASE") {
-    state++;
-    return state;
-  } else if (action.type === "DECREASE") {
-    state--;
-    return state;
-  } else {
-    return state;
-  }
-}
-
-let store = createStore(reducer);
+const store = configureStore({
+  reducer: {
+    user: userReducer,
+    theme: themeReducer,
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>

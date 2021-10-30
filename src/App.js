@@ -1,22 +1,15 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { useSelector, useDispatch } from "react-redux";
+import Profile from "./components/Profile";
+import Login from "./components/Login";
+import ChangeColor from "./components/ChangeColor";
 
-function App() {
-  const data = useSelector((state) => state);
-  const dispatch = useDispatch();
+const App = () => {
   return (
-    <div className="App">
-      <p>Your weight : {data}</p>
-      <button
-        onClick={() => {
-          dispatch({ type: "INCREASE" });
-        }}
-      >
-        +
-      </button>
+    <div>
+      <Profile />
+      <Login />
+      <ChangeColor />
     </div>
   );
-}
+};
 
 export default App;
